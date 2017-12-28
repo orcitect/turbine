@@ -1,0 +1,20 @@
+{
+  "name": "turbine",
+  "version": "1.0.0",
+  "description": "turbine",
+  "main": "turbine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "oscar",
+  "license": "ISC",
+  "dependencies": {
+    "cluster": "^0.7.7",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "http": "0.0.0",
+    "mysql": "^2.15.0",
+    "npm": "^5.6.0",
+    "winston": "^3.0.0-rc1"
+  }
+}
