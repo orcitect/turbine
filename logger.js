@@ -1,4 +1,5 @@
 // logger.js
+
 'use strict';
 
 const winston = require('winston');
@@ -22,6 +23,7 @@ const logger = winston.createLogger({
 //
 if (process.env.NODE_ENV !== 'production') {
     logger.add(new winston.transports.Console({
+        timestamp: true,
         format: winston.format.simple()
     }));
 }

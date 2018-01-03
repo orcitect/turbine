@@ -3,8 +3,9 @@ FROM node:alpine
 WORKDIR /app
 COPY *.js ./
 COPY package.json ./
+COPY settings.json ./
 RUN npm install
 RUN mkdir /log
 VOLUME /log
-EXPOSE 8081
+EXPOSE 8888
 CMD node server.js
