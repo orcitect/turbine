@@ -1,12 +1,8 @@
-// logger.js
-
 'use strict';
 
 const winston = require('winston');
-
 const logger = winston.createLogger({
     level: 'info',
-    format: winston.format.json(),
     transports: [
         //
         // - write to all logs with level 'info' and below to 'combined.log'
@@ -23,6 +19,7 @@ const logger = winston.createLogger({
 //
 if (process.env.NODE_ENV !== 'production') {
     logger.add(new winston.transports.Console({
+        level: 'info',
         timestamp: true,
         format: winston.format.simple()
     }));
