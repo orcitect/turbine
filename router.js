@@ -1,13 +1,13 @@
 'use strict';
 
 const express = require('express');
-const cascontrol = require('./controller');
-const router  = express.Router();
+const router = express.Router();
+const controller = require('./controller');
 
-router.route('/').get(cascontrol.getIndex);
-router.route('/casinoid').get(cascontrol.getAll);
-router.route('/casinoid/:name').get(cascontrol.getCID);
-router.route('/jurisdiction/:jdx').get(cascontrol.getJDX);
-router.route('/prodadp/:value').get(cascontrol.getADP);
+router.route('/').get(controller.index);
+router.route('/casinoid').get(controller.all);
+router.route('/casinoid/:name').get(controller.casino);
+router.route('/jurisdiction/:jdx').get(controller.jdx);
+router.route('/prodadp/:value').get(controller.adapter);
 
 module.exports = router;

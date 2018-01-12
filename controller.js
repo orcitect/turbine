@@ -6,12 +6,16 @@ const cluster = require('cluster');
 
 module.exports = {
 
-    getIndex : function(req, res){
+    index : function(req, res){
         res.send('Hello from worker ' + cluster.worker.id);
     },
 
-    getAll : function(req, res){
+    all : function(req, res){
         db.getConnection(function(err, connection) {
+            if (err) {
+                res.json({"code": 100, "status": "error in connection database"});
+                return;
+            }
             connection.query('SELECT * FROM nerd;', function (error, results, fields) {
                 log.info('API CALL: /api/casinoid, connection id: ' + connection.threadId)
                 connection.release();
@@ -20,7 +24,7 @@ module.exports = {
         });
     },
 
-    getCID : function(req, res){
+    casino : function(req, res){
         db.getConnection(function(err, connection) {
             if (err) {
                 res.json({"code": 100, "status": "error in connection database"});
@@ -34,7 +38,7 @@ module.exports = {
         });
     },
 
-    getADP : function(req, res){
+    adapter : function(req, res){
         db.getConnection(function(err, connection) {
             if (err) {
                 res.json({"code": 100, "status": "error in connection database"});
@@ -48,7 +52,7 @@ module.exports = {
         });
     },
 
-    getJDX : function(req, res){
+    jdx : function(req, res){
         db.getConnection(function(err, connection) {
             if (err) {
                 res.json({"code": 100, "status": "error in connection database"});
