@@ -24,10 +24,9 @@ function masterProcess() {
   }
 
   cluster.on('exit', (worker, code, signal) => log.info(`Worker ${cluster.worker.id} died`))
-
 }
 
 function workerProcess() {
-    app.use('/api', routes);
-    app.listen(80, "0.0.0.0", () => log.info(`Worker ${process.pid} started (${app.settings.env})`))
+  app.use('/api', routes);
+  app.listen(80, "0.0.0.0", () => log.info(`Worker ${process.pid} started (${app.settings.env})`))
 }

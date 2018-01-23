@@ -17,7 +17,7 @@ module.exports = {
                 return;
             }
             connection.query('SELECT * FROM nerd;', function (error, results, fields) {
-                log.info('API CALL: /api/casinoid, connection id: ' + connection.threadId)
+                log.info('API CALL: /api/casinoid, connection id: ' + connection.threadId);
                 connection.release();
                 res.json(results);
             });
@@ -31,7 +31,7 @@ module.exports = {
                 return;
             }
             connection.query('SELECT * FROM nerd WHERE casinoid=?;', [req.params.name], function (error, results, fields) {
-                log.info('API CALL: /api/casinoid/, connection id: ' + connection.threadId)
+                log.info('API CALL: /api/casinoid/, connection id: ' + connection.threadId);
                 connection.release();
                 res.json(results);
             });
@@ -45,7 +45,7 @@ module.exports = {
                 return;
             }
             connection.query('SELECT * FROM nerd WHERE prodadp=?', [req.params.value], function (error, results, fields) {
-                log.info('API CALL: /api/prodadp/:value, connection id: ' + connection.threadId)
+                log.info('API CALL: /api/prodadp/:value, connection id: ' + connection.threadId);
                 connection.release();
                 res.json(results);
             });
@@ -59,10 +59,10 @@ module.exports = {
                 return;
             }
             connection.query('SELECT * FROM nerd WHERE jurisdiction=?;', [req.params.jdx], function (error, results, fields) {
-                log.info('API CALL: /api/jurisdiction/, connection id: ' + connection.threadId)
+                log.info('API CALL: /api/jurisdiction/, connection id: ' + connection.threadId);
                 connection.release();
                 res.json(results);
             });
         });
-    }
+    },
 }
