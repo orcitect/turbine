@@ -1,11 +1,13 @@
 'use strict';
 
-const cluster  = require('cluster');
-const log      = require('./log');
-const cpuCount = require('os').cpus().length;
-const express  = require('express');
-const app      = express();
-const routes   = require('./router');
+const cluster     = require('cluster');
+const log         = require('./log');
+const cpuCount    = require('os').cpus().length;
+const express     = require('express');
+const app         = express();
+const routes      = require('./router');
+const cors        = require('cors');
+const corsOptions = { origin: '*' }
 
 
 if (cluster.isMaster) {
@@ -27,6 +29,6 @@ function masterProcess() {
 }
 
 function workerProcess() {
-  app.use('/api', routes);
+  app.use('/api', cors(corsOptions), routes);
   app.listen(80, "0.0.0.0", () => log.info(`Worker ${process.pid} started (${app.settings.env})`));
 }

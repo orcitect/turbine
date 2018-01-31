@@ -1,8 +1,8 @@
 'use strict';
 
-const db = require('./db');
-const log = require('./log');
-const cluster = require('cluster');
+const db        = require('./db');
+const log       = require('./log');
+const cluster   = require('cluster');
 
 module.exports = {
 
